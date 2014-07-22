@@ -1,0 +1,72 @@
+.container {
+	max-width: 992px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+
+/* ================
+   ==== HEADER ====
+   ================ */
+
+header {
+	background: #20cf8b; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: -moz-linear-gradient(-45deg, #20cf8b 1%, #0f9c94 96%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(1%,#20cf8b), color-stop(96%,#0f9c94)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg, #20cf8b 1%,#0f9c94 96%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg, #20cf8b 1%,#0f9c94 96%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg, #20cf8b 1%,#0f9c94 96%); /* IE10+ */
+	background: linear-gradient(135deg, #20cf8b 1%,#0f9c94 96%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#20cf8b', endColorstr='#0f9c94',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+	
+	color: #fff;
+	height: 60px;
+	padding-top: 120px;
+	padding-bottom: 30px;
+}
+header {
+	font-family: 'Roboto Slab', serif;
+}
+.page-title h1 {
+	font-size: 2.33em;
+	margin: 0;
+}
+.page-description {
+	color: #02534a;
+	font-size: 1em;
+	margin: 0;
+}
+#hero-365,
+.page-description {
+	font-weight: 100;
+}
+#hero-goats {
+	font-weight: 700;
+}
+
+/* ================
+   ==== FOOTER ====
+   ================ */
+
+footer {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 100;
+	padding-top:30px;
+	padding-bottom: 30px;
+	color: #888;
+}
+footer a {
+	color: #888;
+	text-decoration: none;
+}
+footer p {
+	margin-top:.33em;
+}
