@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>365 Goats</title>
+        <meta name="description" content="Learning Code One Day At A Time">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="favicon.ico"> 
+
+        <script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+        
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="stylesheet" href="css/summary.css">
+
+    </head>
+    <body>
+        <header id="mini-header">
+            <div class="container">
+                <a id="summary-header-logo" href="http://www.365goats.com">
+                    <span id="hero-365">365</span><span class="strong">GOATS</span>
+                </a>
+            </div>
+        </header>
+        <section id="project-demo">
+            <div class="container">
+                <a href="/day1/summary.html" class="project-title strong">Countdown Begins!</a>
+                <div id="timer-wrapper">
+                    <div class="timer-single text-center">
+                        Days:<br><span id="days" class="timer-digit strong"></span>
+                    </div>
+                    <div class="timer-single text-center">
+                        Hours:<br><span id="hours" class="timer-digit strong"></span>
+                    </div>
+                    <div class="timer-single text-center">
+                        Minutes:<br><span id="mins" class="timer-digit strong"></span>
+                    </div>
+                    <div class="timer-single text-center">
+                        Seconds:<br><span id="secs" class="timer-digit strong"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="code-snippet-wrapper">
+            <div class="container">
+                <div class="code-snippet-wrapper">
+                    <div class="code-snippet-title strong">
+                        <p>Javascript</p>
+                    </div>
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+var countdown = function() {
+
+    var endDate = new Date("July 24, 2015 00:00:00");
+    var nowDate = new Date();
+
+    var timeDiff = endDate.getTime() - nowDate.getTime();
+
+    //If countdown completed
+    if (timeDiff &lt;= 0) {
+        clearTimeout(timer);
+        document.write("Congratulations! Now what?");
+    }
+
+    var seconds = Math.floor(timeDiff / 1000);
+    var minutes = Math.floor(seconds / 60);
+    var hours = Math.floor(minutes / 60);
+    var days = Math.floor(hours / 24);
+        
+    seconds %= 60;
+    minutes %= 60;
+    hours %= 24;    
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("mins").innerHTML = minutes;
+    document.getElementById("secs").innerHTML = seconds;
+
+    var timer = setTimeout(countdown,1000);
+    
+}  
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="code-snippet-wrapper code-snippet-second">
+                    <div class="code-snippet-title strong">
+                        <p>HTML</p>
+                    </div>
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+&lt;p>Days:&nbsp;&lt;span id="days">&lt;/span>&lt;/p>
+&lt;p>Hours:&nbsp;&lt;span id="hours">&lt;/span>&lt;/p>
+&lt;p>Minutes:&nbsp;&lt;span id="mins">&lt;/span>&lt;/p>
+&lt;p>Seconds:&nbsp;&lt;span id="secs">&lt;/span>&lt;/p>
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <a href="http://www.madebygoat.com">Greatest Of All Time Design 2014</a>
+                <p>By Sergey Yeremenko</p>
+            </div>
+        </footer>
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="../js/plugins.js"></script>
+        <script src="js/workers.js"></script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-29685381-2', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+    </body>
+</html>

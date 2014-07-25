@@ -1,34 +1,86 @@
 <!DOCTYPE html>
+<html lang="en" class="no-js">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>365 Goats</title>
-        <meta name="description" content="Learning Code one day at a time">
+        <meta name="description" content="Learning Code One Day At A Time">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="favicon.ico"> 
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        
         <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,700' rel='stylesheet' type='text/css'>
-
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <header>
+        <header id="main-header">
             <div class="container">
                 <div class="page-title">
-                    <h1><span id="hero-365">365</span><span id="hero-goats">GOATS</span></h1>
+                    <h1>
+                        <a id="header-logo" href="http://www.365goats.com">
+                            <span id="hero-365">365</span><span class="strong">GOATS</span>
+                        </a>
+                    </h1>
                 </div>
                 <p class="page-description">Learning Code One Day At A Time</p>
             </div>         
         </header>
+        <section id="summary-wrapper">
+            <div class="container">
+                <div class="summary-single">
+                    <span><span class="hidden-sm">Day </span>Number:</span>&nbsp;<span id="day-digit">#</span>
+                </div>
+                <div class="summary-single">
+                    <span><span class="hidden-sm">Projects </span>Completed:</span>&nbsp;<span id="complete-digit">#</span> 
+                </div>
+                <div class="summary-single">
+                    <span><span class="hidden-sm">Days </span>Missed:</span>&nbsp;<span id="missed-digit">#</span>
+                </div>
+            </div>
+        </section>
         <section>
-            
+            <div class="container">
+                <ul id="project-wrapper">
+                    <!-- ////// Day 2 ////// -->
+                    <li class="project-single">
+                        <div class="project-day text-center">
+                            <p>Day<br><span class="project-day-number strong">2</span></p>
+                        </div>
+                        <div class="project-info-wrapper">
+                            <div class="project-info-top">
+                                <p>July 24,2014</p>
+                                <p class="project-info-time">Time<span class="hidden-sm">&nbsp;Spent</span>: 2 Hours</p>
+                            </div>
+                            <div class="project-info-body">
+                                <a href="/day2/summary" class="project-title strong">Dynamically Update the Project Scoreboard</a>
+                                <p class="project-description">Expanded on yesterday’s Countdown project to automatically update my complete/missed scoreboard. Had to brush up on <span class="code">function()</span> scope to calculate what day it is, how many projects I have uploaded, and the difference between the two. </p>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- ////// Day 1 ////// -->
+                    <li class="project-single">
+                        <div class="project-day text-center">
+                            <p>Day<br><span class="project-day-number strong">1</span></p>
+                        </div>
+                        <div class="project-info-wrapper">
+                            <div class="project-info-top">
+                                <p>July 23,2014</p>
+                                <p class="project-info-time">Time<span class="hidden-sm">&nbsp;Spent</span>: 1.5 Hours</p>
+                            </div>
+                            <div class="project-info-body">
+                                <a href="/day1/summary" class="project-title strong">Countdown Begins!</a>
+                                <p class="project-description">Simple countdown widget to tell me when my 365 days are up. I took an indepth look at the <span class="code">Date()</span>object as well as some simple mathematical calculations.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </section>
         <footer>
             <div class="container">
-                <a href="http:www.madebygoat.com">Greatest Of All Time Design 2014</a>
+                <a href="http://www.madebygoat.com">Greatest Of All Time Design 2014</a>
                 <p>By Sergey Yeremenko</p>
             </div>
         </footer>

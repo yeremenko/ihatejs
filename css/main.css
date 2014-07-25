@@ -1,3 +1,8 @@
+html,
+#hero-365 {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 100;
+}
 .container {
 	max-width: 992px;
 	margin-left: auto;
@@ -11,12 +16,24 @@
 .text-right {
 	text-align: right;
 }
+.strong {
+	font-weight: 700;
+}
+p, pre {
+    margin: 0;
+}
 
 /* ================
    ==== HEADER ====
    ================ */
 
-header {
+#main-header {
+	height: 60px;
+	padding-top: 120px;
+	padding-bottom: 30px;
+}
+#main-header,
+#mini-header {
 	background: #20cf8b; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
     background: -moz-linear-gradient(-45deg, #20cf8b 1%, #0f9c94 96%); /* FF3.6+ */
@@ -28,37 +45,145 @@ header {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#20cf8b', endColorstr='#0f9c94',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
 	
 	color: #fff;
-	height: 60px;
-	padding-top: 120px;
-	padding-bottom: 30px;
 }
-header {
-	font-family: 'Roboto Slab', serif;
+#mini-header {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+#header-logo,
+#summary-header-logo {
+	text-decoration: none;
+}
+#header-logo {
+	color: #fff;
+}
+#summary-header-logo {
+	color: #fff;
+}
+.page-title a {
+	display: inline-block;
+	text-decoration: none;
+	color: #fff;
 }
 .page-title h1 {
 	font-size: 2.33em;
 	margin: 0;
 }
 .page-description {
-	color: #02534a;
+	color: #012f2a;
 	font-size: 1em;
 	margin: 0;
 }
-#hero-365,
-.page-description {
+
+/* =====================
+   ==== SUMMARY ROW ====
+   ===================== */
+
+#summary-wrapper {
+	background:#222;
+	color: #fff;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+#summary-wrapper p {
 	font-weight: 100;
+	margin:0;
 }
-#hero-goats {
-	font-weight: 700;
+.summary-single {
+	display: inline-block;
+	width: 32%;
+	text-align: center;
 }
+#complete-digit {
+	color:#6DBB33;
+}
+#missed-digit {
+	color: #E11F27;
+}
+#project-wrapper {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+.project-single {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border-bottom:1px dashed #ddd;
+}
+.project-day {
+	display: inline-block;
+	width: 16.666%;
+	float: left;
+}
+.project-day-number {
+	display: inline-block;
+	font-size: 1.666em;
+	margin-top: 6px;
+}
+.project-info-wrapper {
+	display: inline-block;
+	width: 83.333%;
+}
+.project-info-top p {
+	display: inline-block;
+}
+.project-info-time {
+	float: right;
+}
+.project-info-body {
+	margin-top: 6px;
+}
+.project-title {
+	display: inline-block;
+	font-size: 1.666em;
+	margin-bottom: 6px;
+	text-decoration: none;
+	color: #222;
+}
+#project-demo {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+/* ====================
+   === CODE-SNIPPET ===
+   ==================== */
+
+.code {
+	font-family:"Courier New", Courier, monospace;
+	color: #0079b8;
+}
+.code-snippet-title,
+.code-snippet {
+	display: inline-block;
+}
+.code-snippet-title {
+	color: #cacaca;
+    float: left;
+    font-size: 1.666em;
+    margin-top: 10px;
+    padding-right: 3%;
+    width: 20%;
+}
+.code-snippet {
+	width: 77%;
+}
+.code-snippet-second {
+	margin-top: 20px;
+}
+.code-snippet-wrapper {
+	color:#333;
+	background-color: #f8f8f8;
+	font-size: .9em;
+	padding:4px 20px;
+}
+
 
 /* ================
    ==== FOOTER ====
    ================ */
 
 footer {
-	font-family: 'Roboto Slab', serif;
-	font-weight: 100;
 	padding-top:30px;
 	padding-bottom: 30px;
 	color: #888;
@@ -69,4 +194,31 @@ footer a {
 }
 footer p {
 	margin-top:.33em;
+}
+
+@media (max-width: 992px) {
+}
+@media (max-width: 768px) {
+	#main-header {
+		padding-top: 30px;
+	}
+	.hidden-sm {
+		display: none;
+	}
+	.code-snippet-wrapper {
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+	.project-title,
+	.code-snippet-title  {
+		font-size: 1.333em;
+	}
+	.code-snippet-title,
+	.code-snippet {
+		width: 100%;
+		float: none;
+	}
+	.code-snippet {
+		font-size: .9em;
+	}
 }

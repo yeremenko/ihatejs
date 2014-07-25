@@ -1,0 +1,19 @@
+#timer-wrapper {
+	width: 66%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100px;
+	margin-top: 30px;
+}
+.timer-single {
+	display: inline-block;
+	width: 24%;
+}
+.timer-digit {
+	font-size: 2.666em;
+}
+@media (max-width: 768px) {
+	#timer-wrapper {
+		width: 100%;
+	}
+}
