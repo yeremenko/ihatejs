@@ -26,9 +26,17 @@
         </header>
         <section id="project-demo">
             <div class="container">
-                <a href="/day2/summary.html" class="project-title strong">Dynamically Update the Project Scoreboard</a>
-                <div class="demo-wrapper">
-                    <p>Sorry! Because the information is updated in real time, the demo must be viewed on the <a href="http://www.365goats.com">Landing Page</a>.</p>
+                <a href="/day3/summary.html" class="project-title strong">What Time Is It?</a>
+                <div id="time-of-day">
+                    <p class="time-goes-here text-right">
+                        <span>Time Now:&nbsp;</span>
+                        <span class="time-wrapper strong">
+                            <span id="time-hours" class="time-digit"></span>
+                            <span>:</span>
+                            <span id="time-minutes" class="time-digit"></span>
+                            <span id="time-amPm" class="time-digit"></span>
+                        </span>
+                    </p>
                 </div>
             </div>
         </section>
@@ -41,40 +49,50 @@
                     <div class="code-snippet">
                         <pre>
                             <code>
-var projectSummary = function () {
+var setTime = function() {
 
-    //Calculate Day Number
-    var endDate = new Date("July 24, 2015 00:00:00"),
-        nowDate = new Date(),
+    var nowDate = new Date(),
+        nowHours = nowDate.getHours(),
+        nowMinutes = nowDate.getMinutes(),
+        amPm,
+        timeOfDayHTML = document.getElementById("time-of-day"),
+        hourHTML = document.getElementById("time-hours"),
+        minHTML = document.getElementById("time-minutes"),
+        amPmHTML = document.getElementById("time-amPm");
 
-        timeDiff = endDate.getTime() - nowDate.getTime(),
+    // Convert military time to normal
+    if (nowHours > 12) {
+        hourHTML.innerHTML = nowHours - 12;
+        amPm = 'PM';
+    } else if (nowHours == 0) {
+        hourHTML.innerHTML = 12;
+        amPm = 'AM';
+    } else {
+        hourHTML.innerHTML = nowHours;
+        amPm = 'AM';
+    }
 
-        seconds = Math.floor(timeDiff / 1000),
-        minutes = Math.floor(seconds / 60),
-        hours = Math.floor(minutes / 60),
-        days = Math.floor(hours / 24),
+    // Check if its daytime or nighttime
+    if (nowHours &gt;= 6 &amp;&amp; nowHours &lt;= 20) {
+        timeOfDayHTML.classList.add("its-daytime");
+    } else {
+        timeOfDayHTML.classList.add("its-nighttime");
+    }
 
-        todaysDay = 365 - days;
+    // make sure minutes are two digits
+    if (nowMinutes &lt; 10) {
+        minHTML.innerHTML = '0' + nowMinutes;
+    } else {
+        minHTML.innerHTML = nowMinutes;
+    }
+    
 
-    //Counts the number of projects listed
-    var projectWrapper = document.getElementById("project-wrapper"),
-        projectSingle = projectWrapper.getElementsByClassName("project-single"),
-        numberOfUploads = projectSingle.length;
 
-    //subtracts todaysDay from projectWrapper
-    var numberOfDaysMissed = todaysDay - numberOfUploads;
+    amPmHTML.innerHTML = amPm;
 
-    //Updates the numbers on the scoreboard
-    document.getElementById("day-digit").innerHTML = todaysDay;
-    document.getElementById("complete-digit").innerHTML = numberOfUploads;
-    document.getElementById("missed-digit").innerHTML = numberOfDaysMissed;
-}
+};
 
-var initialize = function () {
-
-    projectSummary();
-
-}
+setTime();
                             </code>
                         </pre>
                     </div>
@@ -87,17 +105,13 @@ var initialize = function () {
                     <div class="code-snippet">
                         <pre>
                             <code>
-&lt;div class="container">
-    &lt;div class="summary-single">
-        &lt;p>Day Number:&nbsp;&lt;span id="day-digit">#&lt;/span>&lt;p>
-    &lt;/div>
-    &lt;div class="summary-single">
-        &lt;p>Projects Completed:&nbsp;&lt;span id="complete-digit">#&lt;/span>&lt;/p> 
-    &lt;/div>
-    &lt;div class="summary-single">
-        &lt;p>Days Missed:&nbsp;&lt;span id="missed-digit">#&lt;/span>&lt;/p>
-    &lt;/div>
-&lt;/div>
+&lt;p class=&quot;time-goes-here&quot;&gt;
+    &lt;span&gt;Time Now:&amp;nbsp;&lt;/span&gt;
+    &lt;span id=&quot;time-hours&quot; class=&quot;time-digit&quot;&gt;&lt;/span&gt;
+    &lt;span&gt;:&lt;/span&gt;
+    &lt;span id=&quot;time-minutes&quot; class=&quot;time-digit&quot;&gt;&lt;/span&gt;
+    &lt;span id=&quot;time-amPm&quot; class=&quot;time-digit&quot;&gt;&lt;/span&gt;
+&lt;/p&gt;
                             </code>
                         </pre>
                     </div>
