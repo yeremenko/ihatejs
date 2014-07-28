@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="favicon.ico"> 
 
-        <script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="../../js/vendor/modernizr-2.6.2.min.js"></script>
         
         <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="../../css/normalize.css">
@@ -26,7 +26,7 @@
         </header>
         <section id="project-demo">
             <div class="container">
-                <a href="/day1/summary.html" class="project-title strong">Countdown Begins!</a>
+                <a href="/day1/summary/" class="project-title strong">Countdown Begins!</a>
                 <div id="timer-wrapper">
                     <div class="timer-single text-center">
                         Days:<br><span id="days" class="timer-digit strong"></span>
@@ -52,6 +52,8 @@
                     <div class="code-snippet">
                         <pre>
                             <code>
+var timer;
+
 var countdown = function() {
 
     var endDate = new Date("July 24, 2015 00:00:00");
@@ -80,7 +82,7 @@ var countdown = function() {
     document.getElementById("secs").innerHTML = seconds;
 
     var timer = setTimeout(countdown,1000);
-    
+
 }  
                             </code>
                         </pre>
@@ -112,10 +114,7 @@ var countdown = function() {
             </div>
         </footer>
 
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="../js/plugins.js"></script>
+        <script src="../../js/plugins.js"></script>
         <script src="js/workers.js"></script>
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

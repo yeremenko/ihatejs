@@ -26,9 +26,9 @@
         </header>
         <section id="project-demo">
             <div class="container">
-                <a href="/day2/summary/" class="project-title strong">Dynamically Update the Project Scoreboard</a>
-                <div class="demo-wrapper">
-                    <p>Sorry! Because the information is updated in real time, the demo must be viewed on the <a href="http://www.365goats.com">Landing Page</a>.</p>
+                <a href="/day4/summary/" class="project-title strong">Title</a>
+                <div id="">
+                    
                 </div>
             </div>
         </section>
@@ -41,40 +41,7 @@
                     <div class="code-snippet">
                         <pre>
                             <code>
-var projectSummary = function () {
 
-    //Calculate Day Number
-    var endDate = new Date("July 24, 2015 00:00:00"),
-        nowDate = new Date(),
-
-        timeDiff = endDate.getTime() - nowDate.getTime(),
-
-        seconds = Math.floor(timeDiff / 1000),
-        minutes = Math.floor(seconds / 60),
-        hours = Math.floor(minutes / 60),
-        days = Math.floor(hours / 24),
-
-        todaysDay = 365 - days;
-
-    //Counts the number of projects listed
-    var projectWrapper = document.getElementById("project-wrapper"),
-        projectSingle = projectWrapper.getElementsByClassName("project-single"),
-        numberOfUploads = projectSingle.length;
-
-    //subtracts todaysDay from projectWrapper
-    var numberOfDaysMissed = todaysDay - numberOfUploads;
-
-    //Updates the numbers on the scoreboard
-    document.getElementById("day-digit").innerHTML = todaysDay;
-    document.getElementById("complete-digit").innerHTML = numberOfUploads;
-    document.getElementById("missed-digit").innerHTML = numberOfDaysMissed;
-}
-
-var initialize = function () {
-
-    projectSummary();
-
-}
                             </code>
                         </pre>
                     </div>
@@ -87,17 +54,7 @@ var initialize = function () {
                     <div class="code-snippet">
                         <pre>
                             <code>
-&lt;div class="container">
-    &lt;div class="summary-single">
-        &lt;p>Day Number:&nbsp;&lt;span id="day-digit">#&lt;/span>&lt;p>
-    &lt;/div>
-    &lt;div class="summary-single">
-        &lt;p>Projects Completed:&nbsp;&lt;span id="complete-digit">#&lt;/span>&lt;/p> 
-    &lt;/div>
-    &lt;div class="summary-single">
-        &lt;p>Days Missed:&nbsp;&lt;span id="missed-digit">#&lt;/span>&lt;/p>
-    &lt;/div>
-&lt;/div>
+
                             </code>
                         </pre>
                     </div>

@@ -54,7 +54,7 @@
 	}
 	#time-of-day {
 		font-size: 1.666em;
-		padding:40px 20px;
+		padding:30px 20px 40px;
 	}
 	.its-daytime .time-goes-here ,
 	.its-nighttime .time-goes-here {

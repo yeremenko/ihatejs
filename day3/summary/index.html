@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="favicon.ico"> 
 
-        <script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="../../js/vendor/modernizr-2.6.2.min.js"></script>
         
         <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="../../css/normalize.css">
@@ -26,7 +26,7 @@
         </header>
         <section id="project-demo">
             <div class="container">
-                <a href="/day3/summary.html" class="project-title strong">What Time Is It?</a>
+                <a href="/day3/summary/" class="project-title strong">What Time Is It?</a>
                 <div id="time-of-day">
                     <p class="time-goes-here text-right">
                         <span>Time Now:&nbsp;</span>
@@ -73,7 +73,8 @@ var setTime = function() {
     }
 
     // Check if its daytime or nighttime
-    if (nowHours &gt;= 6 &amp;&amp; nowHours &lt;= 20) {
+    // Daytime is 6am - 8pm 
+    if (nowHours &gt;= 6 &amp;&amp; nowHours &lt;= 19) {
         timeOfDayHTML.classList.add("its-daytime");
     } else {
         timeOfDayHTML.classList.add("its-nighttime");
@@ -105,13 +106,15 @@ setTime();
                     <div class="code-snippet">
                         <pre>
                             <code>
-&lt;p class=&quot;time-goes-here&quot;&gt;
-    &lt;span&gt;Time Now:&amp;nbsp;&lt;/span&gt;
-    &lt;span id=&quot;time-hours&quot; class=&quot;time-digit&quot;&gt;&lt;/span&gt;
-    &lt;span&gt;:&lt;/span&gt;
-    &lt;span id=&quot;time-minutes&quot; class=&quot;time-digit&quot;&gt;&lt;/span&gt;
-    &lt;span id=&quot;time-amPm&quot; class=&quot;time-digit&quot;&gt;&lt;/span&gt;
-&lt;/p&gt;
+ &lt;div id=&quot;time-of-day&quot;&gt;
+    &lt;p class=&quot;time-goes-here&quot;&gt;
+        &lt;span&gt;Time Now:&amp;nbsp;&lt;/span&gt;
+        &lt;span id=&quot;time-hours&quot; class=&quot;time-digit&quot;&gt;&lt;/span&gt;
+        &lt;span&gt;:&lt;/span&gt;
+        &lt;span id=&quot;time-minutes&quot; class=&quot;time-digit&quot;&gt;&lt;/span&gt;
+        &lt;span id=&quot;time-amPm&quot; class=&quot;time-digit&quot;&gt;&lt;/span&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
                             </code>
                         </pre>
                     </div>
@@ -126,10 +129,7 @@ setTime();
             </div>
         </footer>
 
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="../js/plugins.js"></script>
+        <script src="../../js/plugins.js"></script>
         <script src="js/workers.js"></script>
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

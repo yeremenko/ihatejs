@@ -1,3 +1,5 @@
+var timer;
+
 var countdown = function() {
 
 	var endDate = new Date("July 24, 2015 00:00:00");
