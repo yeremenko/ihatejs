@@ -10,7 +10,7 @@
 
         <script src="../../js/vendor/modernizr-2.6.2.min.js"></script>
         
-        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,300,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="../../css/normalize.css">
         <link rel="stylesheet" href="../../css/main.css">
         <link rel="stylesheet" href="css/summary.css">
@@ -26,13 +26,10 @@
         </header>
         <section id="project-demo">
             <div class="container">
-                <a href="/day4/summary/" class="project-title strong">Title</a>
-                <div id="form-wrapper">
-                    <form id="main-form">
-                        <input id="nameFirst" type="text">
-                        <input id="nameLast" type="text">
-                        <button id="main-btn" type="submit">Hit It!</button>
-                    </form>
+                <a href="/day4/summary/" class="project-title strong">Rock, Paper, Scissors!</a>
+                <div id="game-wrapper">
+                    <p id="results" class="text-center">Rock, paper, scissors, says...</p>
+                    <a href="#" id="says-shoot" class="text-center">Shoot!</a>
                 </div>
             </div>
         </section>
@@ -45,7 +42,24 @@
                     <div class="code-snippet">
                         <pre>
                             <code>
+var shootButton = document.getElementById("says-shoot");
+var resultsPlaceholder = document.getElementById("results");
 
+var selections = [
+  "Rock",
+  "Paper",
+  "Scissors"
+];
+
+var saysShoot = function () {
+  var randomHand = selections[Math.floor(Math.random() * selections.length)];
+  resultsPlaceholder.innerHTML = randomHand;
+};
+
+shootButton.onclick = function (evt) {
+  evt.preventDefault();
+  saysShoot();
+};
                             </code>
                         </pre>
                     </div>
@@ -58,7 +72,10 @@
                     <div class="code-snippet">
                         <pre>
                             <code>
-
+&lt;div id=&quot;game-wrapper&quot;&gt;
+    &lt;p id=&quot;results&quot; &gt;Rock, paper, scissors, says...&lt;/p&gt;
+    &lt;a href=&quot;#&quot; id=&quot;says-shoot&quot; &gt;Shoot!&lt;/a&gt;
+&lt;/div&gt;
                             </code>
                         </pre>
                     </div>
