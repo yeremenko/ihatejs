@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>365 Goats</title>
+        <meta name="description" content="Learning Code One Day At A Time">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="favicon.ico"> 
+
+        <script src="../../js/vendor/modernizr-2.6.2.min.js"></script>
+        
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="stylesheet" href="css/summary.css">
+
+    </head>
+    <body>
+        <header id="mini-header">
+            <div class="container">
+                <a id="summary-header-logo" href="http://www.365goats.com">
+                    <span id="hero-365">365</span><span class="strong">GOATS</span>
+                </a>
+            </div>
+        </header>
+        <section id="project-demo">
+            <div class="container">
+                <a href="/day5/summary/" class="project-title strong">Rock, Paper, Scissors!</a>
+                <div id="game-wrapper">
+                    <div id="user-selection-wrap">
+                        <a href="#"id="rock" class="selection-single">Rock</a>
+                        <a href="#"id="paper" class="selection-single">Paper</a>
+                        <a href="#"id="scissors" class="selection-single">Scissors</a>
+                    </div>
+                    <div id="results">
+                        <p id="trigger" class="text-center">Go</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="code-snippet-wrapper">
+            <div class="container">
+                <div class="code-snippet-wrapper">
+                    <div class="code-snippet-title strong">
+                        <p>Javascript</p>
+                    </div>
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+(function () {
+
+    var userChoice;
+
+    // Establish heirarchy of possible hands. ie. rock beats scissors
+    var winnerRules = {
+        rock: 'scissors',
+        scissors: 'paper',
+        paper: 'rock',
+    };
+
+    // Select rock, paper,a or scissors for CPU randomly
+    var cpuRandomize = function () {
+        var ruleKeys = Object.keys(winnerRules),
+            howManyRules = ruleKeys.length,
+            randomKey = ruleKeys[Math.floor(Math.random() * howManyRules)],
+            cpuChoice = winnerRules[randomKey];
+
+        return cpuChoice;
+    };
+
+    // Gets user selection for the ID of the element
+    var setUserChoice = function (evt) {
+        evt.preventDefault();
+        userChoice = (this.id);
+        this.classList.add("selection-single-selected");
+    };
+
+    document.getElementById("rock").addEventListener("click" , setUserChoice , false);
+    document.getElementById("paper").addEventListener("click" , setUserChoice , false);
+    document.getElementById("scissors").addEventListener("click" , setUserChoice , false);
+
+    //  userChoice, cpuChoice either: scissors, paper, rock
+    //  user wins: 1
+    //  user loses: -1
+    //  draw: 0
+    var compareChoice = function (userChoice, compChoice) {
+        var winningChoice = winnerRules[userChoice];
+
+        if (userChoice === compChoice) {
+            return 0;
+        } else if (winningChoice === compChoice) {
+            return 1;
+        } else {
+            return -1;
+        }
+    };
+
+    // If userChoice is not empty, compare the results
+    var matchResult = function (userChoice, compChoice) {
+        if (!userChoice) {
+            evt.preventDefault();
+            return;
+        }
+
+        var scoreboard = compareChoice(userChoice, compChoice);
+
+        if (scoreboard === 0) {
+            trigger.innerHTML="Draw";
+        } else if (scoreboard === 1) {
+            trigger.innerHTML="Win!";
+        } else {
+            trigger.innerHTML="Lose";
+        }
+
+    };
+
+    // Clear styles for user selection
+    var clearSelection = function () {
+        var s = document.getElementsByClassName('selection-single');
+
+        for (var i = 0; i < s.length; i++) {
+           s[i].classList.remove('selection-single-selected');
+        }
+    };
+
+    // When user clicks go, compare results
+    var trigger = document.getElementById("trigger");
+    trigger.addEventListener("click" , function () {
+        var compChoice = cpuRandomize();
+        matchResult(userChoice, compChoice);
+        clearSelection();
+    }, false);
+
+}());
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="code-snippet-wrapper code-snippet-second">
+                    <div class="code-snippet-title strong">
+                        <p>HTML</p>
+                    </div>
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+&lt;div id=&quot;game-wrapper&quot;&gt;
+    &lt;div id=&quot;user-selection-wrap&quot;&gt;
+        &lt;a href=&quot;#&quot;id=&quot;rock&quot; class=&quot;selection-single&quot;&gt;Rock&lt;/a&gt;
+        &lt;a href=&quot;#&quot;id=&quot;paper&quot; class=&quot;selection-single&quot;&gt;Paper&lt;/a&gt;
+        &lt;a href=&quot;#&quot;id=&quot;scissors&quot; class=&quot;selection-single&quot;&gt;Scissors&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;results&quot;&gt;
+        &lt;p id=&quot;trigger&quot; class=&quot;text-center&quot;&gt;Go&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <a href="http://www.madebygoat.com">Greatest Of All Time Design 2014</a>
+                <p>By Sergey Yeremenko</p>
+            </div>
+        </footer>
+
+        <script src="../../js/plugins.js"></script>
+        <script src="js/workers.js"></script>
+<!--         <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-29685381-2', 'auto');
+          ga('send', 'pageview');
+
+        </script> -->
+    </body>
+</html>

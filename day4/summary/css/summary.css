@@ -29,19 +29,21 @@
 	font-size: 2em;
 	margin-top: 15px;
 	margin-bottom: 15px;
-	color:#cacaca;
+	color:#888;
 }
 .highlight {
 	font-weight: 300;
 	color: #00a194 !important;
 }
 @media (max-width: 768px) {
-	#says-shoot {
+	#says-shoot,
+	#results {
 		font-size: 1.333em;
+	}
+	#says-shoot {
 		padding:8px 16px; 
 	}
 	#results {
-		font-size: 1.666em;
 		margin-top: 10px;
 		margin-bottom: 10px;
 	}
