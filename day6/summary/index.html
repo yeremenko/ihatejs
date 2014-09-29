@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>365 Goats</title>
+        <meta name="description" content="Learning Code One Day At A Time">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="favicon.ico"> 
+
+        <script src="../../js/vendor/modernizr-2.6.2.min.js"></script>
+        
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Flamenco' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+        
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="stylesheet" href="css/summary.css">
+    </head>
+    <body>
+        <header id="mini-header">
+            <div class="container">
+                <a id="summary-header-logo" href="http://www.365goats.com">
+                    <span id="hero-365">365</span><span class="strong">GOATS</span>
+                </a>
+            </div>
+        </header>
+        <section id="project-demo">
+            <div class="container">
+                <a href="/day6/summary/" class="project-title strong">TicTacGoat</a>
+                <div id="board">
+                    <p class="square square-tl" data-board-position="0"></p>
+                    <p class="square square-tm" data-board-position="1"></p>
+                    <p class="square square-tr" data-board-position="2"></p>
+                    <p class="square square-ml" data-board-position="3"></p>
+                    <p class="square square-mm" data-board-position="4"></p>
+                    <p class="square square-mr" data-board-position="5"></p>
+                    <p class="square square-bl" data-board-position="6"></p>
+                    <p class="square square-bm" data-board-position="7"></p>
+                    <p class="square square-br" data-board-position="8"></p>
+                </div>
+                <div id="specs">
+                    <p><span class="specs-title">Turn:</span>&nbsp;<span id="whos-turn"></span></p>
+                    <p><span class="specs-title">Turn Number:</span>&nbsp;<span id="turn-number"></span></p>
+                    <p><span class="specs-title">Click Position:</span>&nbsp;<span id="click-position">None</span></p>
+                    <p><span class="specs-title">Outcome:</span>&nbsp;<span id="game-outcome">Unknown</span></p>
+                    <p id="reset">Reset</p>
+                </div>
+            </div>
+        </section>
+        <section id="code-snippet-wrapper">
+            <div class="container">
+                <div class="code-snippet-wrapper">
+                    <div class="code-snippet-title strong">
+                        <p>Javascript</p>
+                    </div>
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+(function () {
+    var grid  = [
+        null, null, null,
+        null, null, null,
+        null, null, null
+        ],
+        x     = 'x',
+        o     = 'o',
+        turnNumber = 1,
+        $turnNumber = $('#turn-number'),
+        whosTurn,
+        $whosTurn = $('#whos-turn'),
+        $square = $(".square"),
+        $clickPosition = $('#click-position'),
+        $gameOutcome  = $('#game-outcome'),
+        hasWinner = false;
+
+    var whosTurnIsIt = function () {
+        $turnNumber.html(turnNumber);
+
+        // X goes if turnNumber is ODD, else O goes
+        if (turnNumber % 2) {
+            whosTurn = x;
+        } else {
+            whosTurn = o;
+        }
+        $whosTurn.html(whosTurn);
+    };
+
+    $square.on("click" , function () {
+        var clickPosition = (this.getAttribute("data-board-position"));
+        $clickPosition.text(clickPosition);
+
+        if (grid[clickPosition] !== null || hasWinner == true) {
+            return;
+        } else {    
+            grid[clickPosition] = whosTurn;
+            $(this).text(whosTurn);
+            if (whosTurn == x) {
+                $(this).addClass('x-color');
+            } else if (whosTurn == o) {
+                $(this).addClass('o-color');
+            }
+        }
+
+        checkForWinner();
+        whosTurnIsIt();
+    });
+
+    //
+    var checkForWinner = function () {
+        //start checking for winner after 4 moves
+        if (turnNumber > 4) {
+            console.log('checking...')
+            if  ((grid[0]==grid[1] && grid[1]==grid[2] && grid[2] !== null) ||
+                (grid[3]==grid[4] && grid[4]==grid[5] && grid[5] !== null) ||
+                (grid[6]==grid[7] && grid[7]==grid[8] && grid[8] !== null) ||
+
+                (grid[0]==grid[3] && grid[3]==grid[6] && grid[6] !== null) ||
+                (grid[1]==grid[4] && grid[4]==grid[7] && grid[7] !== null) ||
+                (grid[2]==grid[5] && grid[5]==grid[8] && grid[8] !== null) ||
+
+                (grid[0]==grid[4] && grid[4]==grid[8] && grid[8] !== null) ||
+                (grid[2]==grid[4] && grid[4]==grid[6] && grid[6] !== null))
+            {
+                $gameOutcome.text(whosTurn + ' ' + 'WINS!');
+                hasWinner = true;
+                resetGame();
+            }
+        //must be a draw after 9 moves
+        } else if (turnNumber == 9) {
+            $gameOutcome.text('Draw!');
+        }
+
+        turnNumber++;
+    };
+
+    //reset game by refreshing page
+    var resetGame = function () {
+        $reset = $('#reset');
+        $reset.show();
+        $reset.on('click' , function () {
+            location.reload();
+        });
+    };
+
+    var initGame = function () {
+        whosTurnIsIt();
+    };
+
+    initGame();
+}());
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="code-snippet-wrapper code-snippet-second">
+                    <div class="code-snippet-title strong">
+                        <p>HTML</p>
+                    </div>
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+&lt;div id=&quot;board&quot;&gt;
+    &lt;p class=&quot;square square-tl&quot; data-board-position=&quot;0&quot;&gt;&lt;/p&gt;
+    &lt;p class=&quot;square square-tm&quot; data-board-position=&quot;1&quot;&gt;&lt;/p&gt;
+    &lt;p class=&quot;square square-tr&quot; data-board-position=&quot;2&quot;&gt;&lt;/p&gt;
+    &lt;p class=&quot;square square-ml&quot; data-board-position=&quot;3&quot;&gt;&lt;/p&gt;
+    &lt;p class=&quot;square square-mm&quot; data-board-position=&quot;4&quot;&gt;&lt;/p&gt;
+    &lt;p class=&quot;square square-mr&quot; data-board-position=&quot;5&quot;&gt;&lt;/p&gt;
+    &lt;p class=&quot;square square-bl&quot; data-board-position=&quot;6&quot;&gt;&lt;/p&gt;
+    &lt;p class=&quot;square square-bm&quot; data-board-position=&quot;7&quot;&gt;&lt;/p&gt;
+    &lt;p class=&quot;square square-br&quot; data-board-position=&quot;8&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;specs&quot;&gt;
+    &lt;p&gt;&lt;span class=&quot;specs-title&quot;&gt;Turn:&lt;/span&gt;&amp;nbsp;&lt;span id=&quot;whos-turn&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;span class=&quot;specs-title&quot;&gt;Turn Number:&lt;/span&gt;&amp;nbsp;&lt;span id=&quot;turn-number&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;span class=&quot;specs-title&quot;&gt;Click Position:&lt;/span&gt;&amp;nbsp;&lt;span id=&quot;click-position&quot;&gt;None&lt;/span&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;span class=&quot;specs-title&quot;&gt;Outcome:&lt;/span&gt;&amp;nbsp;&lt;span id=&quot;game-outcome&quot;&gt;Unknown&lt;/span&gt;&lt;/p&gt;
+    &lt;p id=&quot;reset&quot;&gt;Reset&lt;/p&gt;
+&lt;/div&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <a href="http://www.madebygoat.com">Greatest Of All Time Design 2014</a>
+                <p>By Sergey Yeremenko</p>
+            </div>
+        </footer>
+
+        <script src="../../js/plugins.js"></script>
+        <script src="js/workers.js"></script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-29685381-2', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+    </body>
+</html>
