@@ -49,9 +49,13 @@
 
 	//
 	var checkForWinner = function () {
+		
+		//must be a draw after 9 moves
+		if (turnNumber == 9) {
+			$gameOutcome.text('Draw!');
+			resetGame();
 		//start checking for winner after 4 moves
-		if (turnNumber > 4) {
-			console.log('checking...')
+		} else if (turnNumber > 4) {
 			if  ((grid[0]==grid[1] && grid[1]==grid[2] && grid[2] !== null) ||
 			    (grid[3]==grid[4] && grid[4]==grid[5] && grid[5] !== null) ||
 			    (grid[6]==grid[7] && grid[7]==grid[8] && grid[8] !== null) ||
@@ -67,9 +71,6 @@
 				hasWinner = true;
 				resetGame();
 			}
-		//must be a draw after 9 moves
-		} else if (turnNumber == 9) {
-			$gameOutcome.text('Draw!');
 		}
 
 		turnNumber++;

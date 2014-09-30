@@ -4,7 +4,7 @@ html,
 	font-weight: 100;
 }
 .container {
-	max-width: 992px;
+	max-width: 800px;
 	margin-left: auto;
 	margin-right: auto;
 	padding-left: 15px;
@@ -16,8 +16,14 @@ html,
 .text-right {
 	text-align: right;
 }
+.text-left {
+	text-align: left;
+}
 .strong {
 	font-weight: 700;
+}
+.code-comment {
+	color: #ccc;
 }
 p, pre {
     margin: 0;
@@ -91,8 +97,7 @@ p, pre {
 }
 .summary-single {
 	display: inline-block;
-	width: 32%;
-	text-align: center;
+	width: 32.75%;
 }
 #complete-digit {
 	color:#6DBB33;
@@ -199,11 +204,16 @@ footer p {
 @media (max-width: 992px) {
 }
 @media (max-width: 768px) {
-	#main-header {
-		padding-top: 30px;
-	}
 	.hidden-sm {
 		display: none;
+	}
+	#main-header {
+		padding-top: 30px;
+		padding-bottom: 50px;
+	}
+	.summary-single {
+		display: block;
+		text-align: left;
 	}
 	.code-snippet-wrapper {
 		margin-left: -15px;

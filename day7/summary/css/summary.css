@@ -1,9 +1,5 @@
-body {
-    font-family: 'Open Sans', sans-serif;
-/*    background-color: #23262b;
-    color: #ffffff;*/
-}
 #board {
+	background-color: #070038;
 	width: 242px;
 	height: 242px;
 	margin: 20px auto 30px;
@@ -11,8 +7,7 @@ body {
 	-webkit-border-radius: 3px;
 	   -moz-border-radius: 3px;
 			border-radius: 3px;
-	overflow: hidden;
-	background-color: #f2f2f2;
+			overflow: hidden;
 }
 .square {
 	font-family: 'Flamenco', sans-serif;
@@ -20,15 +15,16 @@ body {
 	font-size: 4.25em;
 	width: 80px;
 	height: 80px;
-	/*background-color: #34363d;*/
 	float: left;
 	text-align: center;
+	cursor: hand;
+	cursor: pointer;
 }
 .x-color {
-	color: #f9353e;
+	color: #ff5500;
 }
 .o-color {
-	color: #3ab49d;
+	color: #ff9c00;
 }
 #specs {
 	width: 300px;
@@ -36,7 +32,7 @@ body {
 	line-height: 1.2em;
 }
 .specs-title {
-	color: #666;
+	color: #c3c3c3;
 }
 #reset {
 	text-align: right;
@@ -50,7 +46,7 @@ body {
 .square-ml,
 .square-mm,
 .square-mr {
-	border-bottom: 1px solid #d3d3d3;
+	border-bottom: 1px solid #4f2764;
 }
 .square-tl,
 .square-tm,
@@ -58,7 +54,5 @@ body {
 .square-mm,
 .square-bl,
 .square-bm {
-	border-right: 1px solid #d3d3d3;
-}
-@media (max-width: 768px) {
+	border-right: 1px solid #4f2764;
 }
