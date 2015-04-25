@@ -25,6 +25,8 @@
 		$turnNumber.html(turnNumber),
 		$whosTurn.html(whosTurn),
 		$gameOutcome.html('Unknown');
+
+		whosTurnIsIt();
     };
 
     //toggle X and O
@@ -102,15 +104,11 @@
 		$reset = $('#reset');
 		$reset.show();
 		$reset.on('click' , function () {
-			initGame();
+			newGame();
+			$reset.hide();
 		});
+
 	};
 
-	//start game
-	var initGame = function () {
-		newGame();
-		whosTurnIsIt();
-	};
-
-	initGame();
+	newGame();
 }());
