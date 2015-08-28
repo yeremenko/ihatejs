@@ -1,7 +1,12 @@
 html,
 #hero-365 {
 	font-family: 'Roboto Slab', serif;
+}
+#hero-365 {
 	font-weight: 100;
+}
+html {
+	font-weight: 300;
 }
 .container {
 	max-width: 800px;
@@ -133,7 +138,8 @@ p, pre {
 	display: inline-block;
 }
 .project-info-time {
-	float: right;
+	/*float: right;*/
+	margin-bottom: 8px;
 }
 .project-info-body {
 	margin-top: 6px;
@@ -144,6 +150,11 @@ p, pre {
 	margin-bottom: 6px;
 	text-decoration: none;
 	color: #222;
+}
+.project-title:hover,
+.project-title:active {
+	color: #009589;
+	text-decoration: underline;
 }
 #project-demo {
 	padding-top: 30px;
