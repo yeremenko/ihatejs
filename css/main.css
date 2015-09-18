@@ -47,7 +47,7 @@ pre {
 #main-header,
 #mini-header {
   color: #fff;
-  background: #f23306; /* Old browsers */
+  background: #f3431a; /* Old browsers */
 }
 #mini-header {
   padding-top: 15px;
@@ -116,6 +116,10 @@ pre {
   clear: both;
 
   color: #012f2a;
+}
+.project-link:hover,
+.project-link:focus {
+  color: #f3431a;
 }
 .project-day {
   display: inline-block;
