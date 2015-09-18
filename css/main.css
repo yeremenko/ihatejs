@@ -119,6 +119,9 @@ pre {
 }
 .project-link:hover,
 .project-link:focus {
+  cursor: pointer;
+  cursor: hand;
+
   color: #f3431a;
 }
 .project-day {
@@ -159,12 +162,6 @@ pre {
   text-decoration: none;
 
   color: #222;
-}
-.project-title:hover,
-.project-title:active {
-  text-decoration: underline;
-
-  color: #009589;
 }
 .project-title,
 .project-description {
