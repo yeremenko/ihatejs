@@ -88,6 +88,7 @@ pre {
    ===================== */
 
 #summary-wrapper {
+  margin-bottom: 15px;
   padding-top: 15px;
   padding-bottom: 15px;
 
@@ -106,14 +107,17 @@ pre {
   list-style-type: none;
 }
 .project-single {
-  padding-top: 30px;
-  padding-bottom: 30px;
-
+  /* padding-top: 30px; */
+  /* padding-bottom: 30px; */
   border-bottom: 1px dashed #ddd;
 }
 .project-link {
   display: block;
   clear: both;
+
+  padding-top: 25px;
+  padding-bottom: 30px;
+  /* background-color: #d4e0e5; */
 
   color: #012f2a;
 }
@@ -121,8 +125,10 @@ pre {
 .project-link:focus {
   cursor: pointer;
   cursor: hand;
+  /* color: #f3431a; */
 
-  color: #f3431a;
+  background-color: #d4e0e5;
+  background-color: peach;
 }
 .project-day {
   display: inline-block;
