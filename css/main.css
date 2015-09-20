@@ -122,8 +122,9 @@ pre {
 .project-link:focus {
   cursor: pointer;
   cursor: hand;
+  /*color: #f3431a;*/
 
-  color: #f3431a;
+  background-color: #e2eff4;
 }
 .project-day {
   display: inline-block;
