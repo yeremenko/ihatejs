@@ -88,6 +88,7 @@ pre {
    ===================== */
 
 #summary-wrapper {
+  margin-bottom: 15px;
   padding-top: 15px;
   padding-bottom: 15px;
 
@@ -106,20 +107,23 @@ pre {
   list-style-type: none;
 }
 .project-single {
-  padding-top: 30px;
-  padding-bottom: 30px;
-
   border-bottom: 1px dashed #ddd;
 }
 .project-link {
   display: block;
   clear: both;
 
+  padding-top: 25px;
+  padding-bottom: 30px;
+
   color: #012f2a;
 }
 .project-link:hover,
 .project-link:focus {
-  color: #f3431a;
+  cursor: pointer;
+  cursor: hand;
+
+  background-color: #e2eff4;
 }
 .project-day {
   display: inline-block;
@@ -159,12 +163,6 @@ pre {
   text-decoration: none;
 
   color: #222;
-}
-.project-title:hover,
-.project-title:active {
-  text-decoration: underline;
-
-  color: #009589;
 }
 .project-title,
 .project-description {
