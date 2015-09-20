@@ -122,7 +122,6 @@ pre {
 .project-link:focus {
   cursor: pointer;
   cursor: hand;
-  /*color: #f3431a;*/
 
   background-color: #e2eff4;
 }
